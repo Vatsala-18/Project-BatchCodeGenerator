@@ -1,64 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Batch Code</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Batch Code</title>
+  <!--Font Family-->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;900&family=Ubuntu:wght@300;500&display=swap" rel="stylesheet">
+  <!--Bootstrap-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="styles.css">
+
 </head>
 <body>
-    <h1>Generate Batch Code</h1>
-    <form action="/batchcode" method="POST">
 
-        <b>Center</b>
-        <select name="center" id="">
-            {{#each centers as |c|}}
-                <option value="{{c.id}}">{{c.name}}</option>
-            {{/each}}
-        </select>
+  <div class="container-fluid">
+    <div class="row">
 
-        <br>
+      <div class="col-lg-6">
+        <div class="big-title">
+          <h1>GENERATE BATCH CODE</h1>
+        </div>
+      </div>
 
-        <b>Season</b>
-        <select name="season" id="">
-            {{#each seasons as |s|}}
-                <option value="{{s.id}}">{{s.name}}</option>
-            {{/each}}
-        </select>
+      <div class="col-lg-6">
+        <div class="card login-form">
+          <div class="card-body">
+            <div class="card-text">
 
-        <br>
+              <form action="/batchcode" method="POST">
 
-        <b>Course</b>
-        <select name="course" id="">
-            {{#each courses as |c|}}
-                <option value="{{c.id}}">{{c.name}}</option>
-            {{/each}}
-        </select>
+                <div class="form-group">
+                  <label for="mycenter">Center</label>
+                  <select name="center" id="">
+                    {{#each centers as |c|}}
+                    <option value="{{c.id}}">{{c.name}}</option>
+                    {{/each}}
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="myseason">Season</label>
+                  <select name="season" id="">
+                    {{#each seasons as |s|}}
+                    <option value="{{s.id}}">{{s.name}}</option>
+                    {{/each}}
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="mycourse">Course</label>
+                  <select name="course" id="">
+                    {{#each courses as |c|}}
+                    <option value="{{c.id}}">{{c.name}}</option>
+                    {{/each}}
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="myyear">Year</label>
+                  <select name="year" id="">
+                    {{#each years as |y|}}
+                    <option value="{{y}}">{{y}}</option>
+                    {{/each}}
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="mybatchr">Batch No.</label>
+                  <input type="number" min="1" max="5" name="batchno" id="">
+                </div>
+                <div class="form-group">
+                  <label for="mystartdate">Start Date</label>
+                  <input name="start" type="date">
+                </div>
+                <div class="form-group">
+                  <label for="myenddate">End Date</label>
+                  <input name="end" type="date">
+                </div>
 
-        <br>
+                <input type="reset">
+                <input type="submit">
 
-        <b>Year</b>
-        <select name="year" id="">
-            {{#each years as |y|}}
-                <option value="{{y}}">{{y}}</option>
-            {{/each}}
-        </select>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-        <br>
-
-        <b>Batch No.</b>
-        <input type="number" min="1" max="5" name="batchno" id="">
-
-        <b>Start</b>
-        <input name="start" type="date">
-
-        <b>End</b>
-        <input name="end" type="date">
-
-        <br> <br>
-
-        <input type="reset">
-        <input type="submit">
-    </form>
 </body>
 </html>
